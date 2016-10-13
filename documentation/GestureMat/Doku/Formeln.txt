@@ -1,0 +1,4 @@
+http://chart.apis.google.com/chart?cht=tx&chl=v(t)=\int\limits_{0}^t a(t)*dt%2Bv(0)=a*t%2Bv(0)
+http://chart.apis.google.com/chart?cht=tx&chl=s(t)=\int\limits_{0}^t (a(t)*t%2Bv(0))*dt%2Bs(0)=\frac{1}{2}a*t^2%2Bv(0)*t+s(0)
+http://chart.apis.google.com/chart?cht=tx&chl=v(t_x)=a*\Delta t%2Bv(t_{x-1})
+http://chart.apis.google.com/chart?cht=tx&chl=s(t_x)=\frac{1}{2}a*\Delta t^2%2Bv(t_{x-1})*\Delta t+s(t_{x-1})

@@ -1,0 +1,55 @@
+===Grundlegende Überlegungen und mathematischer Hintergrund===
+Im Prinzip geht es darum, aus der Bewegung des Handys auf die durchgeführte Aktivität zu schließen. Dafür müssen die speziellen Bewegungsdaten, welche von unterschiedlichen Sensoren geliefert werden, analysiert werden.
+Mit Hilfe des Beschleunigungs- und des Magnetfeldsensors werden die benötigten Rohdaten aus dem Smartphone ausgelesen. Die Herausforderung des Projektes besteht darin, aus diesen Daten geeignete Merkmale zu extrahieren, vergleichen und analysieren.
+
+Grundsätzlich gibt es 2 Möglichkeiten die gelieferten Messdaten auszuwerten:
+ * Rohdaten selbst auswerten
+ * Aus den Rohdaten aussagekräftigere Werte berechnen (tatsächliche Beschleunigung, Geschwindigkeit, zurückgelegter Weg, usw.)
+
+_*Auswertung durch Betrachten der Rohdaten:*_
+Wie zuvor schon erläutert werden nur die Messdaten des Beschleunigungssensors betrachtet und für alle drei Achsen des Smartphones ausgewertet. Die Messdaten beinhalten nicht nur die tatsächliche Beschleunigung, sondern auch die Erdbeschleunigung, die zu gewissen Anteilen auf die drei Achsen wirkt. Zur Vereinfachung wird diese Verfälschung der Beschleunigungsdaten nicht extrahiert, da für die Bestimmung der Erdbeschleunigung und deren Achsenanteile der Lagesensor verwendet werden muss (Siehe Probleme des Lagesensors).
+Falls es möglich ist, diese Anteile mit einem geringen Aufwand relativ exakt zu berechnen, so kann die tatsächliche Beschleunigung a anhand der Messwerte m bestimmt werden:
+
+MATRIX FORMEL
+
+Wobei folgendes für die Erdbeschleunigung g gelten muss:
+
+http://chart.apis.google.com/chart?cht=tx&chl=\sqrt{g_x^2%20%2B%20g_y^2%20%2B%20g_z^2}=9,81&formel.png
+
+
+<wiki:comment>
+
+</wiki:comment>
+_*Auswertung durch Betrachten von tatsächlicher Beschleunigung bzw. zurückgelegten Weg:*_
+Um den zurückgelegten Weg im dreidimensionalen Raum bestimmen zu können, werden die tatsächlichen Beschleunigungswerte (ohne Erdbeschleunigung) in Richtung aller drei Achsen ausgewertet.
+Die gleichmäßige Beschleunigung setzt sich zunächst aus
+
+http://chart.apis.google.com/chart?cht=tx&chl=a=\frac{\Delta%20v}{\Delta%20t}&formel.png
+
+zusammen. Es handelt sich dabei um die Änderung der Geschwindigkeit vin Relation zur Zeitspanne ?t. Lässt man diese Zeitspanne unendlich klein werden, so erhält man annähernd die momentane Beschleunigung a.
+
+http://chart.apis.google.com/chart?cht=tx&chl=a=\lim_{\Delta%20t%20\to%200}\frac{dv}{dt}=\lim_{\Delta%20t%20\to%200}\frac{d^2s}{dt^2}&formel.png
+
+Der zurückgelegte Weg s(t)nach einer gewissen Zeit bei gleichmäßiger Geschwindigkeit v lässt sich durch ein einfaches Integral berechnen. Dabei müssen die beiden Anfangswerte, Geschwindigkeit v(0) und Weg s(0)zum Zeitpunkt 0, bekannt sein.
+
+http://chart.apis.google.com/chart?cht=tx&chl=s%28t%29=\int\limits_{0}^t%20v%280%29*dt%20%2B%20s%280%29&formel.png
+
+http://chart.apis.google.com/chart?cht=tx&chl=s%28t%29=%20v%280%29*t%20%2B%20s%280%29&formel.png
+
+Es wird also zunächst die Geschwindigkeit benötigt, um den zurückgelegten Weg bestimmen zu können. Die Geschwindigkeit v(t)bzw. deren Vektor lässt sich wieder durch ein einfaches Integral aus der gleichmäßigen Beschleunigung a berechnen. Dabei muss der Anfangswert bzw. Anfangsvektor der Geschwindigkeit v(0) bekannt sein.
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{v(t)}=\int\limits_{0}^t%20\vec{a(t)}*dt%2B\vec{v(0)}=a*t%2B\vec{v(0)}&formel.png
+
+Setzt man nun die beiden letzten Formeln zusammen, so kann der Weg s(t) anhand der gleichmäßigen Beschleunigung a(t) berechnet werden.
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{s(t)}=\int\limits_{0}^t%20(\vec{a(t)}*t%2B\vec{v(0)})*dt%2B\vec{s(0)}=\frac{1}{2}a*t^2%2B\vec{v(0)}*t+\vec{s(0)}&formel.png
+
+Da es sich aber in dieser Anwendung nicht um eine gleichmäßige Beschleunigung handelt, muss der zurückgelegte Weg nach jedem Zeitpunkt einer Sensormessung erneut berechnet werden.
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{v(t_x)}=a*\Delta%20t%2B\vec{v(t_{x-1})}&formel.png
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{s(t_x)}=\frac{1}{2}a*\Delta%20t^2%2B\vec{v(t_{x-1})}*\Delta%20t%2B\vec{s(t_{x-1})}&formel.png
+
+Im Allgemeinen werden also nach jeder Sensormessung der bis zu diesem Zeitpunkt zurückgelegte Weg und die Geschwindigkeit herangezogen, um die aktuelle Position und Geschwindigkeit zu berechnen.
+Die berechneten Positionsvektoren werden in einem dreidimensionalen Koordinatensystem festgehalten und ergeben somit die durchgeführte Bewegung im 3D-Raum.
+

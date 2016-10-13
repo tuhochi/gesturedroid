@@ -1,0 +1,17 @@
+#summary Messdaten aller Klassen und unterschiedlichen Geräten
+
+=Messdaten=
+Zur jeder erste Messung gibt es ein [Videos Video]
+
+*[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/sword/ Sword (Smartphone & Wii)]*
+
+*[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/golf Golf (Smartphone & Wii)]*
+
+*[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/wave Wave (Smartphone & Wii)]*
+
+*[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/baseball Baseball (Smartphone & Wii)]*
+
+*[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/upAndDown Up And Down (Smartphone & Wii)]*
+
+==Sammlung aller Messdaten (Smartphone & Wii)==
+[http://gesturedroid.googlecode.com/svn-history/r219/trunk/GestureDroidMatlab/data.rar hier downloaden] (1.4 MB rar file)

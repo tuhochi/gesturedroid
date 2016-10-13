@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="__MSG_title__"
+               description="__MSG_description__"
+               author="Dohyung Kim"
+               author_email="dohyungkim.feedback+image_slideshow@gmail.com"
+               author_affiliation="Google Inc."
+               author_location="Seoul, Korea"
+               screenshot="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ALL_ALL.png"
+               thumbnail="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ALL_ALL-thm.png">
+    <Require feature="dynamic-height"/>
+    <Require feature="setprefs" />
+    <Require feature="views" />
+    <Locale lang="*" country="*" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ALL_ALL.xml" />
+    <Locale lang="all" country="all" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ALL_ALL.xml" />
+    <Locale lang="ar" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ar_ALL.xml" language_direction="rtl"/>
+    <Locale lang="bg" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/bg_ALL.xml"/>
+    <Locale lang="ca" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ca_ALL.xml"/>
+    <Locale lang="cs" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/cs_ALL.xml"/>
+    <Locale lang="da" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/da_ALL.xml"/>
+    <Locale lang="de" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/de_ALL.xml"/>
+    <Locale lang="el" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/el_ALL.xml"/>
+    <Locale lang="en" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/en_ALL.xml"/>
+    <Locale lang="es" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/es_ALL.xml"/>
+    <Locale lang="et" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/et_ALL.xml"/>
+    <Locale lang="fi" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/fi_ALL.xml"/>
+    <Locale lang="fil" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/fil_ALL.xml"/>
+    <Locale lang="fr" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/fr_ALL.xml"/>
+    <Locale lang="he" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/he_ALL.xml" language_direction="rtl"/>
+    <Locale lang="hi" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/hi_ALL.xml"/>
+    <Locale lang="hr" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/hr_ALL.xml"/>
+    <Locale lang="hu" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/hu_ALL.xml"/>
+    <Locale lang="id" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/id_ALL.xml"/>
+    <Locale lang="in" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/in_ALL.xml"/>
+    <Locale lang="is" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/is_ALL.xml"/>
+    <Locale lang="it" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/it_ALL.xml"/>
+    <Locale lang="iw" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/he_ALL.xml" language_direction="rtl"/>
+    <Locale lang="ja" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ja_ALL.xml"/>
+    <Locale lang="ko" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ko_ALL.xml"/>
+    <Locale lang="lt" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/lt_ALL.xml"/>
+    <Locale lang="lv" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/lv_ALL.xml"/>
+    <Locale lang="ms" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ms_ALL.xml"/>
+    <Locale lang="nl" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/nl_ALL.xml"/>
+    <Locale lang="no" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/no_ALL.xml"/>
+    <Locale lang="pl" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/pl_ALL.xml"/>
+    <Locale lang="pt-BR" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/pt-BR_ALL.xml"/>
+    <Locale lang="pt-PT" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/pt-PT_ALL.xml"/>
+    <Locale lang="ro" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ro_ALL.xml"/>
+    <Locale lang="ru" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/ru_ALL.xml"/>
+    <Locale lang="sk" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/sk_ALL.xml"/>
+    <Locale lang="sl" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/sl_ALL.xml"/>
+    <Locale lang="sr" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/sr_ALL.xml"/>
+    <Locale lang="sv" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/sv_ALL.xml"/>
+    <Locale lang="th" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/th_ALL.xml"/>
+    <Locale lang="tl" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/tl_ALL.xml"/>
+    <Locale lang="tr" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/tr_ALL.xml"/>
+    <Locale lang="uk" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/uk_ALL.xml"/>
+    <Locale lang="vi" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/vi_ALL.xml"/>
+    <Locale lang="zh-CN" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/zh-CN_ALL.xml"/>
+    <Locale lang="zh-TW" messages="http://www.google.com/ig/modules/image_slideshow/image_slideshow_content/zh-TW_ALL.xml"/>
+    <Preload href="__UP_album_url__" />
+    <Preload href="__UP_feed_url__" />
+  </ModulePrefs>
+  <UserPref name="type"
+        display_name="__MSG_source__"
+        datatype="enum"
+        default_value="__MSG_default_source__">
+    <EnumValue value="0" display_value="__MSG_picasa_web_album__" />
+    <EnumValue value="1" display_value="__MSG_flickr_photostream__" />
+    <EnumValue value="2" display_value="__MSG_picasa_web_search__" />
+    <EnumValue value="3" display_value="__MSG_flickr_tag_search__" />
+    <EnumValue value="4" display_value="__MSG_google_image_search__" />
+    <EnumValue value="5" display_value="__MSG_feed_url__" />
+  </UserPref>
+  <UserPref name="user"
+      display_name="__MSG_user__"
+      datatype="string"
+      default_value="__MSG_default_user__"
+      />
+  <UserPref name="feed"
+      display_name="__MSG_feed_url__"
+      datatype="string"
+      default_value="__MSG_default_feed_url__"
+      />
+  <UserPref name="color"
+      display_name="__MSG_color__"
+      datatype="enum"
+      default_value="__MSG_default_color__">
+    <EnumValue value="black" display_value="__MSG_black__" />
+    <EnumValue value="white" display_value="__MSG_white__" />
+  </UserPref>
+  <UserPref
+      name="displaytime"
+      display_name="__MSG_refresh_rate__"
+      datatype="enum"
+      default_value="__MSG_default_refresh_rate__">
+    <EnumValue value="3" />
+    <EnumValue value="5" />
+    <EnumValue value="8" />
+    <EnumValue value="10" />
+    <EnumValue value="15" />
+  </UserPref>
+  <UserPref name="crop"
+      display_name="__MSG_crop__"
+      datatype="enum"
+      default_value="__MSG_default_crop__">
+    <EnumValue value="enable" display_value="__MSG_enable__" />
+    <EnumValue value="disable" display_value="__MSG_disable__" />
+  </UserPref>
+  <UserPref name="query"
+      datatype="hidden"
+      default_value="__MSG_query__" />
+  <UserPref name="feed_url"
+      datatype="hidden"
+      default_value="__MSG_default_preload_url__" />
+  <UserPref name="album_url"
+      datatype="hidden"
+      default_value="__MSG_album_url__" />
+<Content type="html" view="default, home, canvas"><![CDATA[
+<style>#m___MODULE_ID__{zoom:1}#ss__MODULE_ID__{width:100%;font-family:Arial;position:relative}#ss__MODULE_ID__ *{margin:0;padding:0}#ss__MODULE_ID__ fieldset{border:none;padding:10px}#search-field__MODULE_ID__.mode #q__MODULE_ID__,#search-field__MODULE_ID__.mode #submit__MODULE_ID__,#search-field__MODULE_ID__.q #mode__MODULE_ID__{display:none}#ss__MODULE_ID__ .i1{float:left;width:100%;margin-left:-60px}#ss__MODULE_ID__ fieldset>.i1{margin-left:-70px}#ss__MODULE_ID__ .i2{padding-left:70px;*float:left}#q__MODULE_ID__,#mode__MODULE_ID__{width:100%;margin:0;float:left}#q__MODULE_ID__{height:18px;*margin-top:1px}#submit__MODULE_ID__{width:60px;margin:0;float:right}#ss__MODULE_ID__ .clear{clear:both}#ss__MODULE_ID__ .preview-box{position:relative}#ss__MODULE_ID__ .ss-image-list{padding:0 11px 0 10px;position:relative;overflow:hidden;zoom:1}#list-view-frame__MODULE_ID__{width:100%;height:59px;position:relative}#previous-button__MODULE_ID__,#next-button__MODULE_ID__{position:absolute;top:0;overflow:hidden;width:10px;height:59px;font-size:0;line-height:0;cursor:pointer}#previous-button__MODULE_ID__ a,#next-button__MODULE_ID__ a{text-decoration:none}#previous-button__MODULE_ID__{left:0}#next-button__MODULE_ID__{right:-1px}.ss-image-list-inner>#next-button__MODULE_ID__{right:0}#previous-button__MODULE_ID__.dim,#next-button__MODULE_ID__.dim{cursor:default}#previous-arrow__MODULE_ID__,#next-arrow__MODULE_ID__,#backward__MODULE_ID__,#play__MODULE_ID__,#pause__MODULE_ID__,#forward__MODULE_ID__{background:url(http://img0.gmodules.com/ig/modules/image_slideshow/image_slideshow_content/buttons.gif) no-repeat}#previous-arrow__MODULE_ID__,#next-arrow__MODULE_ID__{width:5px;height:9px;margin-top:25px;margin-__BIDI_START_EDGE__:3px}#preview-container__MODULE_ID__{height:210px;text-align:center;overflow:hidden}#control__MODULE_ID__{width:228px;height:50px;position:absolute;__BIDI_START_EDGE__:50%;top:160px;z-index:97;margin-__BIDI_START_EDGE__:-114px;overflow:hidden}#ss__MODULE_ID__ .control-box{width:222px;height:30px;padding:10px 0 0 14px;z-index:99;opacity:.8;filter:alpha(opacity=80);position:absolute;left:0;top:0}#ss__MODULE_ID__ .control-box-background{width:226px;height:48px;border:1px solid #fff;background-color:#000;opacity:.3;filter:alpha(opacity=30);position:absolute;z-index:98;left:0;bottom:0}#ss__MODULE_ID__ .control-box div{position:relative;float:left;cursor:pointer;height:28px;border:0}#backward__MODULE_ID__{width:70px;background-position:-20px 0}#play__MODULE_ID__{width:39px;display:inline;margin:0 10px;background-position:-129px 0}#pause__MODULE_ID__{width:39px;display:none;margin:0 10px;background-position:-90px 0}#forward__MODULE_ID__{width:70px;background-position:-168px 0}#backward__MODULE_ID__.dim,#forward__MODULE_ID__.dim{cursor:default;opacity:.5;filter:alpha(opacity=50)}#ss__MODULE_ID__ .preview-image{position:absolute;cursor:pointer}#preview-title__MODULE_ID__{text-align:center;padding:3px 10px;font-size:12px;display:block;height:14px}a#preview-title__MODULE_ID__:link,a#preview-title__MODULE_ID__:visited{text-decoration:none}a#preview-title__MODULE_ID__:hover,a#preview-title__MODULE_ID__:active{text-decoration:underline}#ss__MODULE_ID__ .error-msg{color:red}#image-list__MODULE_ID__{position:absolute;width:1136px;height:59px;list-style-type:none;white-space:nowrap;overflow:hidden;cursor:pointer;top:0}#image-list__MODULE_ID__ .list-item{position:relative;float:left;width:70px;height:59px;text-align:center}#ss__MODULE_ID__ .selected .list-item-inner{margin-top:-24px;margin-__BIDI_START_EDGE__:-30px;text-align:__BIDI_START_EDGE__}#ss__MODULE_ID__ .list-item-inner{position:absolute;width:55px;height:41px;top:50%;__BIDI_START_EDGE__:50%;margin-top:-22px;margin-__BIDI_START_EDGE__:-28px;overflow:hidden;text-align:__BIDI_START_EDGE__}#ss__MODULE_ID__ .list-item-inner img{position:absolute;border:0}#ss__MODULE_ID__ .ellipsis{display:block;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;-moz-binding:url('/ig/modules/culture_life/culture_life_content/ellipsis.xml#ellipsis');word-spacing:-2px}#ss__MODULE_ID__ .ellipsis window{width:100%}#ss__MODULE_ID__ a span{cursor:pointer}#ss__MODULE_ID__.black{color:#ddd;background-color:#000}#ss__MODULE_ID__.black #preview-title__MODULE_ID__{color:#999}#ss__MODULE_ID__.black .ss-image-list{background-color:#333;border-top:1px solid #404040;border-bottom:1px solid #404040}#ss__MODULE_ID__.black #previous-button__MODULE_ID__{border-right:1px solid #404040;background:#333}#ss__MODULE_ID__.black #next-button__MODULE_ID__{border-left:1px solid #404040;background:#333}#ss__MODULE_ID__.black #ss__MODULE_ID__ #image-list__MODULE_ID__{background-color:#333}#ss__MODULE_ID__.black .list-item{border-right:1px solid #404040;background-color:#262626}#ss__MODULE_ID__.black .list-item.selected .list-item-inner{border:3px solid #7ba5d7}#ss__MODULE_ID__.black .list-item-inner{border:1px solid #000}#ss__MODULE_ID__.black #search-field__MODULE_ID__{background-color:#262626}* html #ss__MODULE_ID__.black .list-item.selected .list-item-inner{border:3px solid #7aa5d6}#ss__MODULE_ID__.white{color:#ddd;background-color:#fff}#ss__MODULE_ID__.white #preview-title__MODULE_ID__{color:#999}#ss__MODULE_ID__.white .ss-image-list{border-top:1px solid #e2f0ff;border-bottom:1px solid #e2f0ff}#ss__MODULE_ID__.white #previous-button__MODULE_ID__,#ss__MODULE_ID__.white #next-button__MODULE_ID__{background-color:#e2f0ff}#ss__MODULE_ID__.white .l{background-position:-10px 0}#ss__MODULE_ID__.white .r{background-position:-15px 0}#ss__MODULE_ID__.white #ss__MODULE_ID__ #image-list__MODULE_ID__{z-index:50;background-color:#333}#ss__MODULE_ID__.white .list-item{border-right:1px solid #e2f0ff;background-color:#fff}#ss__MODULE_ID__.white .list-item.selected .list-item-inner{border:3px solid #7ba5d7}#ss__MODULE_ID__.white .list-item-inner{border:1px solid #7ba5d7}#ss__MODULE_ID__.white #search-field__MODULE_ID__{background-color:#fff}* html #ss__MODULE_ID__.white .list-item.selected .list-item-inner{border:3px solid #7aa5d6}</style>
+<div class=white id=ss__MODULE_ID__>
+<div id=gadget-area__MODULE_ID__>
+<div class=preview-box id=preview-box__MODULE_ID__>
+<div>
+<div id=preview-container__MODULE_ID__>
+</div>
+</div>
+<a id=preview-title__MODULE_ID__ target=_blank>__MSG_loading__</a>
+<div id=control__MODULE_ID__ style=display:none>
+<div class=control-box>
+<div id=backward__MODULE_ID__></div>
+<div id=play__MODULE_ID__></div>
+<div id=pause__MODULE_ID__></div>
+<div id=forward__MODULE_ID__></div>
+</div>
+<div class=control-box-background></div>
+</div>
+</div>
+<div class=ss-image-list>
+<div class=ss-image-list-inner>
+<div id=list-view-frame__MODULE_ID__>
+<ul id=image-list__MODULE_ID__>
+</ul>
+</div>
+<div id=previous-button__MODULE_ID__>
+<div id=previous-arrow__MODULE_ID__></div>
+</div>
+<div id=next-button__MODULE_ID__>
+<div id=next-arrow__MODULE_ID__></div>
+</div>
+</div>
+</div>
+</div>
+<form id=form__MODULE_ID__>
+<fieldset class=q id=search-field__MODULE_ID__>
+<select id=mode__MODULE_ID__ name=mode>
+</select>
+<div class=i1><div class=i2>
+<input id=q__MODULE_ID__ name=q />
+</div></div>
+<input id=submit__MODULE_ID__ name=bt name=q type=submit value="__MSG_search__" />
+</fieldset>
+</form>
+</div>
+<script>var ss__MODULE_ID__={};try{document.execCommand("BackgroundImageCache",false,true)}catch(e){}ss__MODULE_ID__.getComputedStyle=function(a,b){var c=a.nodeType==7?a:a.ownerDocument||a.document;if(c.defaultView&&c.defaultView.getComputedStyle)if(a=c.defaultView.getComputedStyle(a,""))return a[b];return null};
+ss__MODULE_ID__.setOpacity=function(a,b){a=a.style;if("opacity"in a)a.opacity=b;else if("filter"in a){var c=[];c.push("alpha(opacity=");c.push(b*100);c.push(")");a.filter=c.join("")}else if("MozOpacity"in a)a.MozOpacity=b};ss__MODULE_ID__.isValidUrl=function(a){var b=/^https?:\/\/|^\//;return typeof a=="string"&&b.exec(a)!=null};
+ss__MODULE_ID__.Item=function(a,b,c,d,f){this.c=a;this.z=document.createElement("li");this.z.className="list-item";var g=this.c.thumbnail.width||55,h=this.c.thumbnail.height||41;this.index=c;this.selected=false;a=[];a.push('<div class="list-item-inner"><img id="thm__MODULE_ID__');a.push(c);if(f){a.push('" src="');a.push(_hesc(this.c.thumbnail.url))}a.push('" style="');f=g/h;var j=f>55/41;if(d==j){if(h>41)h=41;g=h*f;d=(55-g)/2;a.push("height:");a.push(h);a.push("px;left:");a.push(d);a.push('px"></div>')}else{if(g>
+55)g=55;h=g/f;d=d?(41-h)/3:41-h>>1;a.push("width:");a.push(g);a.push("px;top:");a.push(d);a.push('px;left:0"></div>')}this.z.innerHTML=a.join("");b.appendChild(this.z);this.Ha=_gel("thm__MODULE_ID__"+c);this.a=null;this.Aa=0;this.O=false;this.na=true};ss__MODULE_ID__.Item.prototype.select=function(){this.selected=true;this.z.className="list-item selected"};ss__MODULE_ID__.Item.prototype.ia=function(){this.selected=false;this.z.className="list-item"};
+ss__MODULE_ID__.List=function(a,b){this.b=new _IG_Prefs(__MODULE_ID__);this.h=_gel("image-list__MODULE_ID__");this.K=_gel("list-view-frame__MODULE_ID__");this.p=_gel("preview-container__MODULE_ID__");this.F=_gel("preview-title__MODULE_ID__");this.n=0;this.A=71;this.H=this.h.style.left||0;this.fa=b=="white"?1:0;this.Ba=a;this.t=0;this.u=null;this.m=284;this.s=200;this.va=1.42;this.d=null;this.items=[];this.range=[0,3];this.player=new ss__MODULE_ID__.Player(this);this.ga(this.bind(this.sa));this.f=
+this.g=0;this.ea=this.bind(this.I);this.w=360;this.J=40;this.v=this.k=0;this.Ga=this.P=40;this.Ea=this.bind(this.Y);this.B=0;this.T=false};ss__MODULE_ID__.List.prototype.ga=function(a){window.setTimeout(a,10);if(window.addEventListener)window.addEventListener("resize",a,false);else window.attachEvent&&window.attachEvent("onresize",a)};ss__MODULE_ID__.List.prototype.sa=function(){this.N();var a=this.range[1]+1;this.V(a);_IG_AdjustIFrameHeight()};
+ss__MODULE_ID__.List.prototype.load=function(a){this.count=a.length;this.H=this.h.style.left=0;this.a=null;this.p.innerHTML="";var b=ss__MODULE_ID__.getComputedStyle(this.K,"width");this.n=b?parseInt(b,10):this.K.offsetWidth;this.B=Math.ceil((this.n+2)/this.A);this.items.length=0;this.h.innerHTML="";for(b=0;b<a.length;b++){var c=new ss__MODULE_ID__.Item(a[b],this.h,b,this.Ba,b<this.B);this.items.push(c);var d=function(f,g){return function(){f.xa(g);return false}}(this,c);c.z.onclick=d;b==1&&this.select(this.items[0])}a=
+document.createElement("div");a.className="clear";this.h.appendChild(a);this.h.style.width=this.count*this.A+"px"};ss__MODULE_ID__.List.prototype.V=function(a){if(a>=this.count)a=this.count-1;if(!(this.B>a)){for(var b=this.B;b<=a;b++){var c=this.items[b];if(c)c.Ha.src=_hesc(c.c.thumbnail.url)}this.B+=a-this.B+1}};
+ss__MODULE_ID__.List.prototype.j=function(){this.player.stop();if(this.d){this.L();this.ba()}else{this.d=document.createElement("img");this.d.className="preview-image";this.d.style.top="10px";this.d.style.left="10px";var a=this;this.d.onload=function(){a.L();a.ba()};this.d.src=this.fa?"ig/modules/image_slideshow/image_slideshow_content/no_img_w.gif":"ig/modules/image_slideshow/image_slideshow_content/no_img_b.gif"}this.F.innerHTML='<span class="ellipsis error-msg">'+this.b.getMsg("load_error_msg")+
+"</span>";this.F.removeAttribute("href")};ss__MODULE_ID__.List.prototype.L=function(){this.d.width=this.m;this.d.height=this.s};ss__MODULE_ID__.List.prototype.ba=function(){ss__MODULE_ID__.setOpacity(this.d,1);this.a?this.p.replaceChild(this.d,this.a):this.p.appendChild(this.d);this.a=this.d};
+ss__MODULE_ID__.List.prototype.select=function(a){if(a!=this.u){this.u&&this.u.ia();this.u=a;this.t=a.index;this.u.select();this.U(a);if(a.a.complete){a.Aa!=this.m&&this.M(a);a.O=false;this.preview(a)}if(a.index<this.range[0]){var b=a.index-this.range[1]+this.range[0];this.scroll(this.h,parseInt(this.H,10),b*this.A)}else if(a.index>this.range[1]){b=a.index+this.range[1]-this.range[0]+1;this.V(b);this.scroll(this.h,parseInt(this.H,10),a.index*this.A)}else this.N();a=a.index+1;if(a>=this.items.length)a=
+0;a=this.items[a];this.U(a)}};ss__MODULE_ID__.List.prototype.U=function(a){if(!a.a||this.T&&a.na){a.a=document.createElement("img");a.a.className="preview-image";a.a.onload=this.bind(this.ua,a);if(this.T){a.a.src=_hesc(a.c.image.url);a.na=false}else a.a.src=_hesc(a.c.image.url)+"?imgmax=512";a.O=true}};ss__MODULE_ID__.List.prototype.ua=function(a){this.M(a);if(a.O){a.O=false;this.preview(a)}};
+ss__MODULE_ID__.List.prototype.preview=function(a){if(a==this.u){if(this.f){window.clearInterval(this.f);this.f=0;ss__MODULE_ID__.setOpacity(this.o,1);if(this.a){this.p.removeChild(this.a);this.a=this.o}}if(this.a){this.o=a.a;ss__MODULE_ID__.setOpacity(this.o,0);this.p.appendChild(this.o);this.g=0;this.f=window.setInterval(this.ea,this.J);this.aa(this.o,a)}else{this.a=a.a;this.p.appendChild(a.a);this.aa(this.a,a)}}};
+ss__MODULE_ID__.List.prototype.aa=function(a,b){var c=this;a.onmouseover=function(){c.player.R()};a.onclick=b.c.destination?function(){window.open(b.c.destination)}:null;a.setAttribute("title",b.c.destination);this.F.href=b.c.destination;a=[];a.push("<span class=ellipsis>");a.push(_hesc(b.c.title));a.push("</span>");this.F.innerHTML=a.join("")};
+ss__MODULE_ID__.List.prototype.I=function(){this.g+=this.J;if(this.g>=this.w){if(this.f){window.clearInterval(this.f);this.f=0}ss__MODULE_ID__.setOpacity(this.o,0.99);if(this.a){this.p.removeChild(this.a);this.a=this.o}}else{var a=this.g/this.w;ss__MODULE_ID__.setOpacity(this.o,a);ss__MODULE_ID__.setOpacity(this.a,1-a)}};
+ss__MODULE_ID__.List.prototype.M=function(a){var b=a.c.image.width,c=a.c.image.height,d=b/c;if(d>this.va){if(b>this.m)b=this.m;c=b/d;a.a.height=c;a.a.width=b}else{if(c>this.s)c=this.s;b=c*d;a.a.width=b;a.a.height=c}a.a.style.top=(this.s-c)/2+10+"px";a.a.style.left=(this.m-b)/2+10+"px";a.Aa=this.m};ss__MODULE_ID__.List.prototype.bind=function(a,b){var c=this,d=[].slice.call(arguments,1);return function(){var f=d.concat([].slice.call(arguments));return a.apply(c,f)}};
+ss__MODULE_ID__.List.prototype.xa=function(a){this.player.status===1&&this.player.pause();this.select(a);this.player.status===2&&this.player.play()};ss__MODULE_ID__.List.prototype.scroll=function(a,b,c){a=parseInt(this.h.style.width,10)-2;c=c<0?0:c;if(c+this.n>a)c=a-this.n;this.v=c;this.k=-b;this.Y()};
+ss__MODULE_ID__.List.prototype.Y=function(){if(this.v>this.k)if(this.v-this.k>this.P)this.k+=this.P;else this.k=this.v;else if(this.k-this.v>this.P)this.k-=this.P;else this.k=this.v;this.h.style.left=-this.k+"px";this.k!=this.v?window.setTimeout(this.Ea,this.Ga):this.N()};
+ss__MODULE_ID__.List.prototype.N=function(){this.H=parseInt(this.h.style.left,10);var a=-this.H,b=ss__MODULE_ID__.getComputedStyle(this.K,"width");this.n=b?parseInt(b,10):this.K.offsetWidth;if(this.n!=this.m){this.m=this.n;this.s=this.m/this.va;this.p.style.height=this.s+10+"px";this.player.i.style.top=this.s-50+"px";if(this.a){this.a==this.d?this.L():this.M(this.u);this.F.innerHTML=this.F.innerHTML}}this.range[0]=Math.ceil(a/this.A);this.range[1]=Math.floor(this.range[0]+Math.floor((this.n+2)/this.A)-
+1);this.player.$(0,this.fa,this.range[0]<=0);this.player.$(1,this.fa,this.range[1]>=this.count-2);this.player.G(this.player.ha,this.t<=0);this.player.G(this.player.la,this.t>=this.count-1)};
+ss__MODULE_ID__.Player=function(a){this.previewBox=_gel("preview-box__MODULE_ID__");this.i=_gel("control__MODULE_ID__");this.wa=_gel("previous-button__MODULE_ID__");this.ra=_gel("next-button__MODULE_ID__");this.Da=_gel("previous-arrow__MODULE_ID__");this.Ca=_gel("next-arrow__MODULE_ID__");this.ha=_gel("backward__MODULE_ID__");this.X=_gel("play__MODULE_ID__");this.W=_gel("pause__MODULE_ID__");this.la=_gel("forward__MODULE_ID__");this.da=0;this.ma=3E3;this.l=a||{};this.status=0;this.previewBox.onmouseover=
+this.bind(this.ja);this.previewBox.onmouseout=this.bind(this.ka);this.wa.onclick=this.bind(this.C,4);this.ra.onclick=this.bind(this.C,3);this.ha.onclick=this.bind(this.C,2);this.la.onclick=this.bind(this.C,1);this.X.onclick=this.bind(this.play);this.W.onclick=this.bind(this.stop);this.f=this.g=0;this.ea=this.bind(this.I);this.w=360;this.J=40;this.r=false};
+ss__MODULE_ID__.Player.prototype.bind=function(a,b){var c=this,d=[].slice.call(arguments,1);return function(){var f=d.concat([].slice.call(arguments));return a.apply(c,f)}};ss__MODULE_ID__.Player.prototype.C=function(a){var b;if(a==0)b=this.l.t>=this.l.count-1?0:this.l.t+1;else if(a==1)b=this.l.t+1;else if(a==2)b=this.l.t-1;else if(a==3)b=this.l.range[1]+1;else if(a==4)b=this.l.range[0]-1;if(this.l.items[b]){this.status===1&&this.pause();this.l.select(this.l.items[b]);this.status===2&&this.play()}};
+ss__MODULE_ID__.Player.prototype.play=function(){var a=this,b=function(){a.C(0)};this.da=window.setInterval(b,this.ma);this.X.style.display="none";this.W.style.display="inline";this.status=1};ss__MODULE_ID__.Player.prototype.stop=function(){window.clearInterval(this.da);this.X.style.display="inline";this.W.style.display="none";this.status=0};ss__MODULE_ID__.Player.prototype.pause=function(){window.clearInterval(this.da);this.status=2};
+ss__MODULE_ID__.Player.prototype.R=function(){if(this.f&&!this.r){this.r=true;this.g=this.w-this.g}};ss__MODULE_ID__.Player.prototype.I=function(){this.g+=this.J;if(this.g>=this.w){if(this.f){window.clearInterval(this.f);this.f=0}if(this.r)ss__MODULE_ID__.setOpacity(this.i,1);else{ss__MODULE_ID__.setOpacity(this.i,0);this.i.style.display="none"}}else{var a=this.g/this.w;this.r?ss__MODULE_ID__.setOpacity(this.i,a):ss__MODULE_ID__.setOpacity(this.i,1-a)}};
+ss__MODULE_ID__.Player.prototype.Q=function(a){if(this.f!=0){if(this.r!=a){this.r=a;this.g=this.w-this.g}}else{this.g=0;if(this.r=a){ss__MODULE_ID__.setOpacity(this.i,0.01);this.i.style.display="block"}this.f=window.setInterval(this.ea,this.J)}};ss__MODULE_ID__.Player.prototype.ja=function(){this.R();this.i.style.display=="none"&&this.Q(true);return false};ss__MODULE_ID__.Player.prototype.ka=function(a){this.i.style.display!="none"&&this.Q(false);return false};
+ss__MODULE_ID__.Player.prototype.$=function(a,b,c){b=5*(b*2+a);var d=c*9;b=-b+"px "+-d+"px";if(a){this.Ca.style.backgroundPosition=b;this.G(this.ra,c)}else{this.Da.style.backgroundPosition=b;this.G(this.wa,c)}};ss__MODULE_ID__.Player.prototype.G=function(a,b){a.className=b?"dim":""};ss__MODULE_ID__.Player.prototype.setInterval=function(a){this.ma=a};ss__MODULE_ID__.AlbumEntry=function(a,b,c,d){this.title=a;this.destination=b;this.thumbnail=c;this.image=d};
+ss__MODULE_ID__.ImageEntity=function(a,b,c){this.width=parseInt(a,10);this.height=parseInt(b,10);this.url=c};
+ss__MODULE_ID__.Controller=function(){this.b=new _IG_Prefs(__MODULE_ID__);var a=_gel("m___MODULE_ID___b");if(a)a.style.padding="0";a=this.b.getString("color");_gel("ss__MODULE_ID__").className=a;var b=this.b.getInt("type"),c=_gel("search-field__MODULE_ID__");if(b===0)c.className="mode";else if(b===1||b===5)c.style.display="none";else c.className="q";c.form.q.value=this.b.getString("query");c=b===4?false:this.b.getString("crop")=="enable";this.e=new ss__MODULE_ID__.List(c,a);a=parseInt(this.b.getString("displaytime"),
+10)*1E3;this.e.player.setInterval(a);this.ta=[];this.c=[];a=_gel("mode__MODULE_ID__");this.za=this.bind(this.ya,a);a.onchange=this.za;a=_gel("form__MODULE_ID__");a.onsubmit=this.bind(this.Z);if(a=_gel("m___MODULE_ID___0")){this.Fa=this.bind(this.ca,a);a.onchange=this.Fa}a=gadgets.views.getCurrentView().getName();if(a=="canvas")this.e.T=true;this.ca();a=this.b.getString("album_url");if(b===0){c=_esc(this.b.getString("user"));var d="http://picasaweb.google.com/data/feed/base/user/"+c+"?kind=album&alt=rss";
+_IG_FetchXmlContent(d,this.bind(this.qa),{prefetch:true});d!=a&&this.b.set("album_url",d)}else if(b===1){c=_esc(this.b.getString("user"));if(a==c){c=this.b.getString("feed_url");this.D(c,b)}else{d="http://www.flickr.com/photos/"+c+"/";_IG_FetchContent(d,this.bind(function(f){if(!f||typeof f!="string")this.e.j();else{var g=f.indexOf("feeds/photos_public.gne?id=");if(g==-1)this.e.j();else{g+=27;f=f.substring(g,f.indexOf("&",g));f="http://api.flickr.com/services/feeds/photos_public.gne?id="+f+"&lang=en-us&format=rss_200";
+this.D(f,b)}}}));this.b.set("album_url",c)}}else{if(b===5){c=this.b.getString("feed");this.D(c,b)}else this.Z();a!=""&&this.b.set("album_url","")}};ss__MODULE_ID__.Controller.prototype.bind=function(a){var b=this,c=[].slice.call(arguments,1);return function(){var d=c.concat([].slice.call(arguments));return a.apply(b,d)}};
+ss__MODULE_ID__.Controller.prototype.ca=function(){var a=_gel("m___MODULE_ID___0"),b=_gel("m___MODULE_ID___2");if(b)b.parentNode.parentNode.style.display=a.selectedIndex!=5?"none":"";if(b=_gel("m___MODULE_ID___1"))b.parentNode.parentNode.style.display=a.selectedIndex<2?"":"none";if(b=_gel("m___MODULE_ID___5"))b.parentNode.parentNode.style.display=a.selectedIndex==4?"none":""};ss__MODULE_ID__.Controller.prototype.ya=function(a){a=this.ta[a.selectedIndex].guid;this.D(a,"0")};
+ss__MODULE_ID__.Controller.prototype.Z=function(){var a=_gel("q__MODULE_ID__"),b=this.b.getInt("type");a=_esc(a.value);var c;if(b===2)c="http://picasaweb.google.com/data/feed/api/search?kind=photo&q="+a+"&alt=rss&max-results=20";else if(b===3)c="http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&format=rss_200&max=20";else if(b===4)c="http://images.google.com/images?q="+a;this.D(c,b);b=this.b.getString("query");a!=b&&this.b.set("query",decodeURIComponent(a));return false};
+ss__MODULE_ID__.Controller.prototype.S=function(){this.e.player.stop();this.e.load(this.c);this.e.player.play()};ss__MODULE_ID__.PicasaAlbum=function(a,b){this.guid=a;this.title=b};
+ss__MODULE_ID__.Controller.prototype.qa=function(a){var b=this.ta;b.length=0;if(!a||typeof a!="object"||!a.firstChild)this.e.j();else{a=a.getElementsByTagName("item");for(var c=0,d;d=a[c];++c){var f=d.getElementsByTagName("guid");d=d.getElementsByTagName("title");var g,h;if(f&&f.length>0)g=f[0].firstChild.nodeValue.replace("entry","feed");if(d&&d.length>0)h=d[0].firstChild.nodeValue;b[c]=new ss__MODULE_ID__.PicasaAlbum(g,h)}g=_gel("mode__MODULE_ID__");h=this.b.getString("feed_url");f=0;d=c;for(c=
+0;c<d;c++){g.options[c]=new Option(b[c].title,b[c].guid);if(h==b[c].guid)f=c}g.options.selectedIndex=f;a.length>0?setTimeout(this.za,0):this.e.j();_IG_AdjustIFrameHeight()}};ss__MODULE_ID__.Controller.prototype.D=function(a,b){this.c.length=0;b!="4"?_IG_FetchXmlContent(a,this.bind(this.pa),{prefetch:true}):_IG_FetchContent(a,this.bind(this.oa),{prefetch:true});b=this.b.getString("feed_url");a!=b&&this.b.set("feed_url",a)};
+ss__MODULE_ID__.Controller.prototype.pa=function(a){if(!a||typeof a!="object"||!a.firstChild)this.e.j();else{a=a.getElementsByTagName("item");for(var b,c,d,f,g=0,h=0;g<a.length&&h<20;g++){b="__MSG_no_title__";var j=a[g].getElementsByTagName("title");if(j&&j.length>0&&j[0].firstChild)b=j[0].firstChild.nodeValue;var i=a[g].getElementsByTagName("thumbnail");if(i.length==0)i=a[g].getElementsByTagName("media:thumbnail");if(i&&i.length>0){c=null;for(var k=0;k<i.length;k++){j=i[k].getAttribute("width");
+var m=i[k].getAttribute("height"),l=i[k].getAttribute("url");if(55<j&&41<m||k==i.length-1)if(ss__MODULE_ID__.isValidUrl(l)){c=new ss__MODULE_ID__.ImageEntity(j,m,l);break}}}i=a[g].getElementsByTagName("content");if(i.length==0)i=a[g].getElementsByTagName("media:content");if(i&&i.length>0){j=i[0].getAttribute("width");m=i[0].getAttribute("height");l=i[0].getAttribute("url");d=ss__MODULE_ID__.isValidUrl(l)?new ss__MODULE_ID__.ImageEntity(j,m,l):null}if((j=a[g].getElementsByTagName("link"))&&j.length>
+0)f=j[0].firstChild.nodeValue;ss__MODULE_ID__.isValidUrl(f)||(f=null);if(c&&d)this.c[h++]=new ss__MODULE_ID__.AlbumEntry(b,f,c,d)}this.c.length>0?this.S():this.e.j();_IG_AdjustIFrameHeight()}};
+ss__MODULE_ID__.Controller.prototype.oa=function(a){if(!a||typeof a!="string")this.e.j();else{var b=a.match(/008000[^<]+/g);if(b){for(var c=0,d;d=b[c];++c)b[c]=_unesc(d.substring(7));a=a.match(/\/imgres[^"|^>]+/g);for(c=0;c<a.length&&c<20;c++){var f=a[c].indexOf("imgrefurl")+10;d=_unesc(a[c].substring(f,a[c].indexOf("&",f)));ss__MODULE_ID__.isValidUrl(d)||(d=null);f=a[c].indexOf("tbnid=")+6;var g=a[c].substring(f,a[c].indexOf("&",f));g="http://tbn0.google.com/images?q=tbn:"+g;f=a[c].indexOf("tbnw=")+
+5;var h=a[c].substring(f,a[c].indexOf("&",f));f=a[c].indexOf("tbnh=")+5;f=a[c].substring(f,a[c].indexOf("&",f));g=new ss__MODULE_ID__.ImageEntity(h,f,g);this.c[c]=new ss__MODULE_ID__.AlbumEntry(b[c],d,g,g)}a.length>0?this.S():this.e.j();_IG_AdjustIFrameHeight()}else this.e.j()}};(function(){var a=new ss__MODULE_ID__.Controller})();</script>
+]]>
+</Content>
+</Module>

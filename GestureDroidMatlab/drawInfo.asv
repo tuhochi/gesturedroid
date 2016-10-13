@@ -1,0 +1,19 @@
+f=figure(1);
+t=1;
+
+color= 0.3:(1-0.3)/(t-1):1;
+xPos = 1/(6+1):1/(6+1):1-(1/(6+1))
+yPos = 1/(floor((t+1)/2)+1):1/(floor((t+1)/2)+1):1-1/(floor((t+1)/2)+1);
+
+
+indexY=1;% Index der y Position, wird in jedem 2 Druchlauf erhoeht
+for i=1:t% pro Durchlauf wreden jeweils xyz gezeichnet
+    
+    spX = mod(i+1,2)*0.5+0.1;% Start Position X, also entweder 0.1 oder 0.5
+    
+    text(spX,yPos(indexY),['-- x' num2str(i)],'Color',[color(i) 0 0])
+    text(spX+0.12,yPos(indexY),['-- y' num2str(i)],'Color',[0 color(i) 0])
+    text(spX+0.26,yPos(indexY),['-- z' num2str(i)],'Color',[0 0 color(i)])
+    
+    if(mod(i,2)==0)indexY=indexY+1;end
+end

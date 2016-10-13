@@ -1,0 +1,462 @@
+function [drawedDataProp] = drawing(handles,axe,data,folder,lineProperty,featureSet)
+%DRAWING Summary of this function goes here
+%   Detailed explanation goes here
+
+
+switch axe;
+    case 'classAcc'
+        drawedDataProp=classAcc(handles,data,folder,lineProperty);
+    case 'acc'
+        drawedDataProp=acc(handles,data,folder,lineProperty);
+    case 'featureClassMode'
+        drawedDataProp=featureClassMode(handles,data,folder,featureSet,lineProperty);
+    case 'featureMode'
+        drawedDataProp=featureMode(handles,data,folder,featureSet,lineProperty);
+    otherwise
+end
+
+end
+
+
+function [drawedDataProp]=featureMode(handles,dataName,folder,featureSet,lineProperty)
+axes(handles.axesFeature)
+hold on
+dataSize=size(dataName,2);
+drawedDataProp=[];
+for i=1:dataSize
+    
+    %Daten einlesen
+    timeLine=[];
+    dataPath=['data/' folder{i}{1} folder{i}{2} dataName{i}];
+    data=csvread(dataPath,',');
+    
+    data=[data(:,1)./1000000000 data(:,2) data(:,3) data(:,4)];
+
+    %Zeitlinie hinzufügen
+    timeLine(1)=data(1,1);
+    for j=2:size(data,1)
+        timeLine(j)=timeLine(j-1)+data(j,1);
+    end
+    timeLine=timeLine';
+    
+    %Nur Beschleunigungsdaten
+    data=[data(:,2),data(:,3),data(:,4)];
+    
+    % Feature berechnen
+    for j=1:size(featureSet,2)
+        
+        featureName=featureSet{j};
+        switch featureName;
+            case '-'
+            case 'skalieren'
+                data=scale(data,timeLine);
+            case 'normieren'
+                data=normData(data);
+            case 'betrag'
+                data=betrag(data);
+        end
+    end
+        
+    if size(data,2)==1
+
+        plot(data(:,1),lineProperty(i).line{1},'Color',lineProperty(i).b{1});
+        lineProperty(i).channels= {1};
+    else
+        plot(data(:,1),lineProperty(i).line{1},'Color',lineProperty(i).r{1});
+        plot(data(:,2),lineProperty(i).line{1},'Color',lineProperty(i).g{1});
+        plot(data(:,3),lineProperty(i).line{1},'Color',lineProperty(i).b{1});
+    end  
+end
+drawedDataProp=lineProperty(1:dataSize);
+hold off
+end
+
+
+function [drawedDataProp]=featureClassMode(handles,dataName,folder,featureSet,lineProperty)
+axes(handles.axesClassFeature)
+hold on
+dataSize=size(dataName,2);
+drawedDataProp=[];
+for i=1:dataSize
+    
+    %Daten einlesen
+    timeLine=[];
+    dataPath=['data/' folder{i}{1} folder{i}{2} dataName{i}];
+    data=csvread(dataPath,',');
+    
+    data=[data(:,1)./1000000000 data(:,2) data(:,3) data(:,4)];
+
+    %Zeitlinie hinzufügen
+    timeLine(1)=data(1,1);
+    for j=2:size(data,1)
+        timeLine(j)=timeLine(j-1)+data(j,1);
+    end
+    timeLine=timeLine';
+    
+    %Nur Beschleunigungsdaten
+    data=[data(:,2),data(:,3),data(:,4)];
+    
+    % Feature berechnen
+    for j=1:size(featureSet,2)
+        
+        featureName=featureSet{j};
+        switch featureName;
+            case '-'
+            case 'skalieren'
+                data=scale(data,timeLine);
+            case 'normieren'
+                data=normData(data);
+            case 'betrag'
+                data=betrag(data);
+        end
+    end
+    
+    if size(data,2)==1
+        plot(data(:,1),lineProperty(i).line{1},'Color',lineProperty(i).b{1});
+        lineProperty(i).channels= {1};
+    else
+        plot(data(:,1),lineProperty(i).line{1},'Color',lineProperty(i).r{1});
+        plot(data(:,2),lineProperty(i).line{1},'Color',lineProperty(i).g{1});
+        plot(data(:,3),lineProperty(i).line{1},'Color',lineProperty(i).b{1});
+        
+    end  
+end
+drawedDataProp=lineProperty(1:dataSize);
+hold off
+end
+
+
+
+% function featureMode(handles,dataName,folder,featureSet)
+% 
+% axes(handles.axesFeature)
+% hold on
+% dataSize=size(dataName,2);
+% for i=1:dataSize
+%     
+%     %Daten einlesen
+%     dataPath=['data/' folder{i}{1} folder{i}{2} dataName{i}];
+%     data=csvread(dataPath,',');
+%     
+%     data=[data(:,1)./1000000000 data(:,2) data(:,3) data(:,4)];
+% 
+%     %Zeitlinie hinzufügen
+%     timeLine(1)=data(1,1);
+%     for j=2:size(data,1)
+%         timeLine(j)=timeLine(j-1)+data(j,1);
+%     end
+%     timeLine=timeLine';
+%     
+%     %Nur Beschleunigungsdaten
+%     data=[data(:,2),data(:,3),data(:,4)];
+%     
+%     %Normalisierung
+%     if normalize==1
+%         maxValue=10*2;
+% 
+%         normXData=data(:,1)-min(data(:,1));
+%         normXData=(normXData.*maxValue/max(normXData(:,1)))-maxValue/2;
+%         normYData=data(:,2)-min(data(:,2));
+%         normYData=(normYData.*maxValue/max(normYData(:,1)))-maxValue/2;
+%         normZData=data(:,3)-min(data(:,3));
+%         normZData=(normZData.*maxValue/max(normZData(:,1)))-maxValue/2;
+%         
+%         data=[normXData,normYData,normZData];
+%     end
+%     
+%     %Skalierung
+%     if scale==1
+%         %Anzahl der Zeitfenster
+%         n=100;
+% 
+%         duration=timeLine(end);
+%         windowSize=duration/n;
+% 
+%         timedAccX=[];
+%         timedAccY=[];
+%         timedAccZ=[];
+% 
+%         endTime=timeLine(1,1);
+%         for j=1:n
+% 
+%             startTime=endTime;
+%             endTime=startTime+windowSize;
+% 
+%             if(endTime>duration)
+%                 endTime=timeLine(end);
+%             end
+%                         
+%             [startValue startIndex]=getAccValueByTimeLine(timeLine,data,startTime,'start');
+%             [endValue endIndex]=getAccValueByTimeLine(timeLine,data,endTime,'end');
+%             newAcc=startValue;
+%             for k=startIndex:endIndex
+%                 newAcc=[newAcc; data(k,1:3)];
+%             end
+%             newAcc=[newAcc; endValue];
+% 
+%             newAccX=mean(newAcc(:,1));
+%             newAccY=mean(newAcc(:,2));
+%             newAccZ=mean(newAcc(:,3));
+% 
+%             timedAccX=[timedAccX; newAccX];
+%             timedAccY=[timedAccY; newAccY];
+%             timedAccZ=[timedAccZ; newAccZ];
+%         end
+%         
+%         data=[timedAccX,timedAccY,timedAccZ];
+%     end
+%     
+%     %Betrag
+%     if betrag==1
+%        data=max(abs(data(:,:)'))';
+%        plot(data);
+%     else
+%         plot(data(:,1),'Color','blue');
+%         plot(data(:,2),'Color','red');
+%         plot(data(:,3),'Color','green');
+%     end  
+% end
+% hold off
+% end
+% 
+% function featureClassMode(handles,dataName,folder,featureSet)
+% 
+% axes(handles.axesClassFeature)
+% hold on
+% dataSize=size(dataName,2);
+% for i=1:dataSize
+%     
+%     %Daten einlesen
+%     dataPath=['data/' folder{i}{1} folder{i}{2} dataName{i}];
+%     data=csvread(dataPath,',');
+%     
+%     data=[data(:,1)./1000000000 data(:,2) data(:,3) data(:,4)];
+% 
+%     %Zeitlinie hinzufügen
+%     timeLine(1)=data(1,1);
+%     for j=2:size(data,1)
+%         timeLine(j)=timeLine(j-1)+data(j,1);
+%     end
+%     timeLine=timeLine';
+%     
+%     %Nur Beschleunigungsdaten
+%     data=[data(:,2),data(:,3),data(:,4)];
+%     
+%     %Normalisierung
+%     if normalize==1
+%         maxValue=10*2;
+% 
+%         normXData=data(:,1)-min(data(:,1));
+%         normXData=(normXData.*maxValue/max(normXData(:,1)))-maxValue/2;
+%         normYData=data(:,2)-min(data(:,2));
+%         normYData=(normYData.*maxValue/max(normYData(:,1)))-maxValue/2;
+%         normZData=data(:,3)-min(data(:,3));
+%         normZData=(normZData.*maxValue/max(normZData(:,1)))-maxValue/2;
+%         
+%         data=[normXData,normYData,normZData];
+%     end
+%     
+%     %Skalierung
+%     if scale==1
+%         %Anzahl der Zeitfenster
+%         n=100;
+% 
+%         duration=timeLine(end);
+%         windowSize=duration/n;
+% 
+%         timedAccX=[];
+%         timedAccY=[];
+%         timedAccZ=[];
+% 
+%         endTime=timeLine(1,1);
+%         for j=1:n
+% 
+%             startTime=endTime;
+%             endTime=startTime+windowSize;
+% 
+%             if(endTime>duration)
+%                 endTime=timeLine(end);
+%             end
+%                         
+%             [startValue startIndex]=getAccValueByTimeLine(timeLine,data,startTime,'start');
+%             [endValue endIndex]=getAccValueByTimeLine(timeLine,data,endTime,'end');
+%             newAcc=startValue;
+%             for k=startIndex:endIndex
+%                 newAcc=[newAcc; data(k,1:3)];
+%             end
+%             newAcc=[newAcc; endValue];
+% 
+%             newAccX=mean(newAcc(:,1));
+%             newAccY=mean(newAcc(:,2));
+%             newAccZ=mean(newAcc(:,3));
+% 
+%             timedAccX=[timedAccX; newAccX];
+%             timedAccY=[timedAccY; newAccY];
+%             timedAccZ=[timedAccZ; newAccZ];
+%         end
+%         
+%         data=[timedAccX,timedAccY,timedAccZ];
+%     end
+%     
+%     %Betrag
+%     if betrag==1
+%        data=max(abs(data(:,:)'))';
+%        plot(data);
+%     else
+%         plot(data(:,1),'Color','blue');
+%         plot(data(:,2),'Color','red');
+%         plot(data(:,3),'Color','green');
+%     end  
+% end
+% hold off
+% end
+
+
+function [drawedDataProp]=acc(handles,dataName,folder,lineProperty)
+
+axes(handles.axesAcc)
+hold on
+dataSize=size(dataName,2);
+for i=1:dataSize
+    
+    %Daten einlesen
+    dataPath=['data/' folder{i}{1} folder{i}{2} dataName{i}];
+    data=csvread(dataPath,',');
+    data=[data(:,2),data(:,3),data(:,4)];
+    plot(data(:,1),lineProperty(i).line{1},'Color',lineProperty(i).r{1});
+    plot(data(:,2),lineProperty(i).line{1},'Color',lineProperty(i).g{1});
+    plot(data(:,3),lineProperty(i).line{1},'Color',lineProperty(i).b{1});
+        
+end
+drawedDataProp=lineProperty(1:dataSize);
+hold off
+end
+
+function [drawedDataProp]=classAcc(handles,dataName,folder,lineProperty)
+
+axes(handles.axesClassAcc)
+hold on
+dataSize=size(dataName,2);
+for i=1:dataSize
+    
+    %Daten einlesen
+    dataPath=['data/' folder{i}{1} folder{i}{2} dataName{i}];
+    data=csvread(dataPath,',');
+    data=[data(:,2),data(:,3),data(:,4)];
+    plot(data(:,1),lineProperty(i).line{1},'Color',lineProperty(i).r{1});
+    plot(data(:,2),lineProperty(i).line{1},'Color',lineProperty(i).g{1});
+    plot(data(:,3),lineProperty(i).line{1},'Color',lineProperty(i).b{1});
+    
+end
+drawedDataProp=lineProperty(1:dataSize);
+hold off
+end
+
+function [dataOut]=scale(data,timeLine)
+%Anzahl der Zeitfenster
+n=100;
+
+duration=timeLine(end);
+windowSize=duration/n;
+
+if size(data,2)==3
+    timedAccX=[];
+    timedAccY=[];
+    timedAccZ=[];
+
+    endTime=timeLine(1,1);
+    for j=1:n
+
+        startTime=endTime;
+        endTime=startTime+windowSize;
+
+        if(endTime>duration)
+            endTime=timeLine(end);
+        end
+
+        [startValue startIndex]=getAccValueByTimeLine(timeLine,data,startTime,'start');
+        [endValue endIndex]=getAccValueByTimeLine(timeLine,data,endTime,'end');
+        newAcc=startValue;
+        for k=startIndex:endIndex
+            newAcc=[newAcc; data(k,1:3)];
+        end
+        newAcc=[newAcc; endValue];
+
+        newAccX=mean(newAcc(:,1));
+        newAccY=mean(newAcc(:,2));
+        newAccZ=mean(newAcc(:,3));
+
+        timedAccX=[timedAccX; newAccX];
+        timedAccY=[timedAccY; newAccY];
+        timedAccZ=[timedAccZ; newAccZ];
+    end
+    dataOut=[timedAccX,timedAccY,timedAccZ];
+else
+    timedAcc=[];
+
+    endTime=timeLine(1,1);
+    for j=1:n
+
+        startTime=endTime;
+        endTime=startTime+windowSize;
+
+        if(endTime>duration)
+            endTime=timeLine(end);
+        end
+
+        [startValue startIndex]=getAccValueByTimeLine(timeLine,data,startTime,'start');
+        [endValue endIndex]=getAccValueByTimeLine(timeLine,data,endTime,'end');
+        newAcc=startValue;
+        for k=startIndex:endIndex
+            newAcc=[newAcc; data(k,1)];
+        end
+        newAcc=[newAcc; endValue];
+
+        newAcc=mean(newAcc(:,1));
+
+        timedAcc=[timedAcc; newAcc];
+    end
+    dataOut=timedAcc;
+end
+end
+
+function [dataOut]=normData(data)
+maxValue=10;
+
+if size(data,2)==3
+    
+    maxV=max(max(data));
+    minV=min(min(data));
+    
+    scaleP=maxValue/maxV;
+    scaleM=abs(maxValue/minV);
+    
+    M=data;
+    M(M>0)=scaleP;
+    M(M<0)=scaleM;
+    
+    dataOut=data.*M;
+else
+    maxV=max(max(data));
+    minV=min(min(data));
+    
+    scaleP=maxValue/maxV;
+    scaleM=abs(maxValue/minV);
+    
+    M=data;
+    M(M>0)=scaleP;
+    M(M<0)=scaleM;
+    
+    dataOut=data.*M;
+end
+end
+
+function [dataOut]=betrag(data)
+
+if size(data,2)==3   
+   dataOut=max(abs(data(:,:)'))';
+else
+   dataOut=abs(data(:,:));
+end
+
+end

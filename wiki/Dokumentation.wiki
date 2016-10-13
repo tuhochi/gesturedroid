@@ -1,0 +1,241 @@
+#summary Dokumentation und Beschreibung des Projektes
+
+= Dokumentaion =
+
+==Einleitung, Motivation und Problemstellung==
+Der Einsatz der Bewegungsanalyse ist vielseitig und wird in verschiedenen Bereichen, wie zum Beispiel bei Spielkonsolen oder für realistische Animationen von 3D-Modells, eingesetzt. Das Ziel dieses Projekts ist es, die Aktivitäten von einem Smartphone sowie der Wii Remote auf dem Computer zu visualisieren und analysieren.
+Es werden vorwiegend die Ermittlung und Aufbereitung der notwendigen Messdaten behandelt. Abhängig von der Hardware (Smartphone oder Wii Remote) werden entsprechende Daten von Sensoren, wie zum Beispiel Beschleunigungs- und Magnetfeldsensor, ausgelesen und an ein zentrales Serverprogramm übermittelt. Diese Daten können in Zukunft in verschiedenen Anwendunge, wie zum Beispiel der Klassifikation von Bewegungen, eingesetzt werden. Ein zusätzliches Ziel ist es, die Unterschiede der  Messdaten, bezüglich ihrer Genauigkeit und Empfindlichkeit, von unterschiedlicher Hardware aufzuzeigen und zu analysieren.
+
+Anhand der ausgewerteten Daten soll es möglich sein spezifische Aktivitäten, durchgeführt mit einem Smartphone, mit Hilfe von Analysen der Handbewegung bzw. Bewegungen des Gerätes zu erkennen. Im Allgemeinen wird die Art der Bewegung vom Benutzer gewählt und eingeschränkt. Zum Beispiel simuliert der Benutzer den Umgang mit einem Schwert (siehe Abbildung 1). Nach ausgeführter Bewegung mit dem Smartphone, soll dieses im Stande, sein mit Hilfe der Bewegungsanalyse und eines Klassifikators die durchgeführte Aktivität so genau wie möglich zu identifizieren.
+
+||http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/sword.jpg||
+||Abbildung 1: Durchführung einer Schwert-Bewegung||
+
+||<wiki:video url="http://www.youtube.com/watch?v=9ZPlk-bXoic"/>||
+||Video 1: Durchführung einer Schwertbewegung ||
+
+Weitere Videos können [http://code.google.com/p/gesturedroid/wiki/Videos hier] gefunden werden.
+
+==Verwendete Hardware und deren Spezifikationen==
+Daten einer spezifischen Handbewegung werden durch ein Smartphone oder einer Wii Remote, die sich in der Hand befindet, gemessen. In den folgenden Abschnitten wird auf die verwendeten Geräte und Hilfsmittel, die für Vergleichsmessungen notwendig sind, näher eingegangen.
+
+===Smartphone===
+Für dieses Projekt standen sowohl ein _HTC N1_ und ein _HTC Desire_ zur Verfügung. Beide Geräte verfügen über die gleichen Sensoren (siehe Tabelle 1), wobei in diesem Fall nur der Beschleunigungssensor ausschlaggebend ist.
+
+|| *Sensor* || *Intervall* || *Messbereich* || *Genauigkeit* || *Typ* ||
+|| Beschleunigungssensor || 25Hz bis 1500Hz || ±2g/±4g/±8g || http://chart.apis.google.com/chart?cht=tx&chl=\frac{0,5mg}{\sqrt{Hz}}&formel.png || [http://storm.cis.fordham.edu/~gweiss/wisdm-papers/BMA150-accelerometer.pdf BMA150] ||
+|| Magnetfeldsensor || 80Hz || ±300mT || ±2.0mT || [http://www.ic-on-line.cn/iol/datasheet/ak8973_4138699.pdf AK8973] ||
+
+Tabelle 1: Eigenschaften von Beschleunigungs- und Magnetfeldsensors des Smartphones
+
+Die Bewegung eines Smartphones wird durch Beschleunigungsdaten und Daten vom Magnetfeldsensor repräsentiert.
+Der Genauigkeitsbereich sowie die Abtastrate des BMA150 Beschleunigungssensor ist einstellbar und liegt im Abtastberich 25Hz bis 1500Hz sowie im g-Bereiche von ±2g/±4g/±8g. Bei Android Smartphones ist der Genauigkeitsbereich Treiberspezifisch auf ±2g (siehe Video 2)und die maximale interne Abtastrate auf 50 HZ festgelegt (_SENSOR_DELAY_FASTEST_).
+
+||http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/tofast.jpg||
+||Abbildung 2: Smartphone piepst bei einer Beschleunigung >2g||
+
+||<wiki:video url="http://www.youtube.com/watch?v=IfeTO_J-ngc"/>||
+||Video 2: Bewegungen mit einer Beschleunigung von weniger und mehr als 2g||
+
+Zusätzlich sind die Smartphones mit einem Lagesensor ausgerüstet. Unsere Hypothese, dass ein annähender Bewegungsablauf mit Hilfe dieses Sensors berechnet werden könnte, hat sich nicht bestätigt, da die Lage des Smartphones (siehe Abbildung 3) mit Hilfe des Beschleunigungssensors und des Magnetfeldsensors berechnet wird ([http://www.google.com/codesearch/p?hl=en#uX1GffpyOZk/core/java/android/hardware/SensorManager.java Quelle]). Im Abschnitt Probleme wird näher auf die Schwierigkeit mit dem Umgang des Lagesensors eingegangen.
+
+||http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/n1XYZ.jpg||
+||Abbildung 3: Achsen des Smartphones||
+
+===Wii Remote===
+Um einen Vergleich zu den Messdaten von Smartphones zu haben, wurde eine Wii Remote herangezogen. Der Grund dafür ist, dass aus einigen Spielen bekannt ist, dass Nintendo sehr gut mit der Erkennung von Bewegungen zurechtkommt.
+Im Falle der Wii Remote liefern ein Beschleunigungssensor und ein Dual-Axis Gyroskop die benötigten Daten (siehe Tabelle 2).
+
+|| *Sensor* || *Intervall* || *Messbereich* || *Genauigkeit* || *Typ* ||
+|| Beschleunigungssensor || 0.5Hz bis 1600Hz || ± 3g || 10% || [http://www.analog.com/static/imported-files/data_sheets/ADXL330.pdf ADXL330] ||
+|| Dual-Axis Gyroskop || 140 Hz || ±500 - 2000 °/sec || - || [http://www.dynacam3d.com/files/bibliographie/Wii-motion/IDG600_ProductBrief_English.pdf IDG-600] ||
+
+Tabelle 2: Eigenschaften des Beschleunigungssensors und des Gyroskops der Wii Remote
+
+Anhand der obigen Smartphone-, Wii- Tabellen ist zu sehen, dass es Abweichungen zwischen den Sensorentypen, Messbereich und Genauigkeit gibt. Das Dual-Axis Gyroskop liefert Informationen zur Lage der Wii Remote im Raum (siehe Abbildung 4), ohne dass diese von der Beschleunigung des Gerätes beeinflusst werden. Da vor allem die Bewegungserkennung mittels Smartphone fokussiert wird, werden Daten vom Gyroskop nicht weiter betrachtet bzw. in den Vergleich zwischen Smartphone und Wii Remote miteinbezogen.
+
+||http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/wiiXYZ_thumb.jpg||
+||Abbildung 4: Achsen der Wii-Remote||
+
+===Mounting Device===
+Bei dem Mounting Device handelt es sich um eine eigens konstruierte mechanische Halterung (siehe Abbildung 5), die eingesetzt werden kann um eine ähnlich gleiche Bewegung für beide Geräte, sowohl Smartphone als auch Wii Remote, erreichen zu können (siehe Abbildung 6).
+Es können auch verfälschte Messdaten auftreten, da durch die Bauweise des Mounting Devices nicht alle Bewegungen für beide Geräte gleich sind.
+
+||<wiki:gadget url="http://gesturedroid.googlecode.com/svn/wiki/gadget/wiki_slideshow.xml"  up_type="5" up_user="" up_feed="https://picasaweb.google.com/data/feed/base/user/tuhochi/albumid/5588136546516206129?alt=rss&kind=photo&hl=de" up_color="white"/ up_displaytime="3" up_crop="enable" up_query="sunset" up_feed_url="" up_album_url=""  synd="open" w="640"  h="400" title="" lang=en  country="ALL" border="%23ffffff%7C3px%2C1px+solid+%23999999" output="js">||
+||Abbildung 5: Verschiedene Ansichten des Mounting Devices||
+
+Dabei wird die Wii Remote mittels einer [http://code.google.com/p/gesturedroid/wiki/Videos#Wii_fixieren Spann-Einrichtung] fixiert. 
+
+||http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/legoMount_thumb.jpg||
+||Abbildung 6: Smartphone und Wii gemounted||
+
+Weitere Bilder des Mounting Devices können [Bilder#Mounting_Device  hier] gefunden werden.
+
+Wie es in der ibigen Abbildung zu sehen ist, ist es möglich, das Mounting Device mit einem Smartphone und einer Wii Remote zu bestücken. Vorausgesetzt dass eine Messung gleichzeitig gestartet wird, liefern beide Geräte Messdaten für die gleiche Bewegung zur gleichen Zeit unter gleichen Bedingungen
+
+Weitere Videos von Messvorgängen können [Videos#Messvorgaenge hier] gefunden werden.
+
+
+==Vorgehensweise==
+===Grundlegende Überlegungen und mathematischer Hintergrund===
+Im Prinzip geht es darum, aus der Bewegung des Handys auf die durchgeführte Aktivität zu schließen. Dafür müssen die speziellen Bewegungsdaten, welche von unterschiedlichen Sensoren geliefert werden, analysiert werden.
+Mit Hilfe des Beschleunigungs- und des Magnetfeldsensors werden die benötigten Rohdaten aus dem Smartphone ausgelesen. Die Herausforderung des Projektes besteht darin, aus diesen Daten geeignete Merkmale zu extrahieren, zu vergleichen und zu analysieren.
+
+Grundsätzlich gibt es 2 Möglichkeiten die gelieferten Messdaten auszuwerten:
+ * Rohdaten selbst auswerten
+ * Aus den Rohdaten aussagekräftigere Werte berechnen (tatsächliche Beschleunigung, Geschwindigkeit, zurückgelegter Weg, usw.)
+
+_*Auswertung durch Betrachten der Rohdaten:*_
+
+Wie zuvor schon erläutert werden nur die Messdaten des Beschleunigungssensors betrachtet und für alle drei Achsen des Smartphones ausgewertet. Die Messdaten beinhalten nicht nur die tatsächliche Beschleunigung, sondern auch die Erdbeschleunigung, die zu gewissen Anteilen auf die drei Achsen wirkt. Zur Vereinfachung wird diese Verfälschung der Beschleunigungsdaten nicht extrahiert, da für die Bestimmung der Erdbeschleunigung und deren Achsenanteile der Lagesensor verwendet werden muss (Siehe Probleme des Lagesensors).
+Falls es möglich ist diese Anteile mit einem geringen Aufwand exakt zu berechnen, so kann die tatsächliche Beschleunigung _a_ anhand der Messwerte m bestimmt werden:
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{m}=\vec{a}%2B\vec{g}&formel.png
+
+
+Wobei sich die Erdbeschleunigung _g_ aus
+
+
+http://chart.apis.google.com/chart?cht=tx&chl=g\widehat{=}%3Cg_x,g_y,g_z%3E&formel.png
+
+
+zusammensetz und folgendes gelten muss:
+
+http://chart.apis.google.com/chart?cht=tx&chl=\sqrt{g_x^2%20%2B%20g_y^2%20%2B%20g_z^2}=9,81&formel.png
+
+
+<wiki:comment>
+
+</wiki:comment>
+_*Auswertung durch Betrachten von tatsächlicher Beschleunigung bzw. zurückgelegten Weg:*_
+
+Um den zurückgelegten Weg im dreidimensionalen Raum bestimmen zu können, werden die tatsächlichen Beschleunigungswerte (ohne Erdbeschleunigung) in Richtung aller drei Achsen ausgewertet.
+Die gleichmäßige Beschleunigung _a_ setzt sich zunächst aus
+
+http://chart.apis.google.com/chart?cht=tx&chl=a=\frac{\Delta%20v}{\Delta%20t}&formel.png
+
+zusammen. Es handelt sich dabei um die Änderung der Geschwindigkeit _v_ in Relation zur Zeitspanne _Δt_. Lässt man diese Zeitspanne unendlich klein werden, so erhält man annähernd die momentane Beschleunigung _a_.
+
+http://chart.apis.google.com/chart?cht=tx&chl=a=\lim_{\Delta%20t%20\to%200}\frac{dv}{dt}=\lim_{\Delta%20t%20\to%200}\frac{d^2s}{dt^2}&formel.png
+
+Der zurückgelegte Weg _s(t)_ nach einer gewissen Zeit _t_ bei gleichmäßiger Geschwindigkeit _v_ lässt sich durch ein einfaches Integral berechnen. Dabei müssen die beiden Anfangswerte, Geschwindigkeit _v(0)_ und Weg _s(0)_ zum Zeitpunkt 0, bekannt sein.
+
+http://chart.apis.google.com/chart?cht=tx&chl=s%28t%29=\int\limits_{0}^t%20v%280%29*dt%20%2B%20s%280%29&formel.png
+
+http://chart.apis.google.com/chart?cht=tx&chl=s%28t%29=%20v%280%29*t%20%2B%20s%280%29&formel.png
+
+Es wird also zunächst die Geschwindigkeit benötigt, um den zurückgelegten Weg bestimmen zu können. Die Geschwindigkeit _v(t)_ bzw. deren Vektor lässt sich wieder durch ein einfaches Integral aus der gleichmäßigen Beschleunigung _a_ berechnen. Dabei muss der Anfangswert bzw. Anfangsvektor der Geschwindigkeit _v(0)_ bekannt sein.
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{v(t)}=\int\limits_{0}^t%20\vec{a(t)}*dt%2B\vec{v(0)}=a*t%2B\vec{v(0)}&formel.png
+
+Setzt man nun die beiden letzten Formeln zusammen, so kann der Weg _s(t)_ anhand der gleichmäßigen Beschleunigung _a(t)_ berechnet werden.
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{s(t)}=\int\limits_{0}^t%20(\vec{a(t)}*t%2B\vec{v(0)})*dt%2B\vec{s(0)}=\frac{1}{2}a*t^2%2B\vec{v(0)}*t+\vec{s(0)}&formel.png
+
+Da es sich aber in dieser Anwendung nicht um eine gleichmäßige Beschleunigung handelt, muss der zurückgelegte Weg nach jedem Zeitpunkt _tx_ einer Sensormessung erneut berechnet werden.
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{v(t_x)}=a*\Delta%20t%2B\vec{v(t_{x-1})}&formel.png
+
+http://chart.apis.google.com/chart?cht=tx&chl=\vec{s(t_x)}=\frac{1}{2}a*\Delta%20t^2%2B\vec{v(t_{x-1})}*\Delta%20t%2B\vec{s(t_{x-1})}&formel.png
+
+Im Allgemeinen werden also nach jeder Sensormessung der bis zu diesem Zeitpunkt zurückgelegte Weg _s(tx-1)_ und die Geschwindigkeit _v(tx-1)_ herangezogen, um die aktuelle Position _s(tx)_ und Geschwindigkeit _v(tx)_ zu berechnen.
+Die berechneten Positionsvektoren werden in einem dreidimensionalen Koordinatensystem festgehalten und ergeben somit die durchgeführte Bewegung im 3D-Raum.
+
+===Verbindung zwischen Hardware und Serverprogramm===
+Nachdem die Sensoren ausgelesen wurden, gilt es die Daten an das zentrale Serverprogramm zu übertragen. In diesem Projekt wurde eine Echtzeitübertragung angestrebt, um grundsätzlich eine Visualisierung der aktuellen Bewegung zu ermöglichen.
+
+_*Verbindung zwischen Smartphone und Server:*_
+
+Zwischen Smartphone und Server wurde eine Übertragung per UDP oder TCP angestrebt. Der etwas einfachere Umgang mit UDP sorgt zwar für eine schnelle Implementierung, jedoch können bei der Übertragung viele Daten und somit wichtige Informationen über die Bewegung verloren gehen.
+Aus diesem Grund wurde in diesem Projekt eine TCP-Verbindung eingesetzt, die garantiert, dass auch wirklich alle Datenpakete in der richtigen Reihenfolge ankommen. Dafür ist es notwendig, dass sich Smartphone und Serverprogramm im gleichen Netzwerk befinden. Durch einen UDP Broadcast, der durch das Smartphone ausgesendet wird, werden die Verbindungsinformationen des Servers zum Smartphone übertragen. Nach aufgebauter Verbindung können die Daten in Echtzeit zum Server übertragen werden, wo sie für weitere Analysen, in einem geeigneten Format, gespeichert werden.
+
+_*Verbindung zwischen Wii Remote und Server:*_
+
+Die Verbindung zwischen Wii Remote und dem Server wird über Bluetooth hergestellt. Da eine Datenübertragung in Echtzeit angestrebt wird, wurde eine Echtzeit - Verbindung zum Server implementiert. Die Daten werden zuerst über Bluetooth an das Wii-Client Programm übertragen und weiters über die gleiche TCP/UDP Smartphone-Schnittstelle an das Serverprogramm weitergeleitet. Somit wird ein geeigneter Bluetooth Dongle benötigt. Dabei ist auf Kompatibilitätsprobleme mit dem Dongle Driver zu achten (Siehe Probleme Übertragung der Wii-Messdaten mittels Bluetooth). Beim Verbindungsaufbau wird die Wii-Remote und Motion Plus zuerst einzeln kalibriert. Dazu werden Kalibrierungsdaten aus dem Speicher der Wii-Remote gelesen und eine Kalibrierung des Gyroscopes durchgeführt. Zur Erleichterung der einzelnen Schritte wurden Teile von Java Wii-API´s zur Hilfe genommen. Größtenteils wurde die API von [http://motej.sourceforge.net motej] und [http://www.world-of-cha0s.hostrocket.com/WiiRemoteJ WiiRemoteJ] benutzt. 
+
+===Auswerten der gelieferten Messdaten===
+Die Messung einer Bewegung beinhalten mehrere Informationen wie am folgenden Beispiel zu sehen ist:
+
+|| *Zeitabstand* || *x-Beschleunigung* || *y-Beschleunigung* || *z-Beschleunigung* || *orX* || *orY* || *orZ* || *orRowX* || *orRowY* || *orRowZ* ||
+|| *in ns* || *in m/s²* || *in m/s²* || *in m/s²* || *in Grad* || *in Grad* || *in Grad* || *in Grad* || *in Grad* || *in Grad* ||
+|| 70060976 || 0.12083334 || 0.7583333 || 0.6763889 || 0.0 || 0.0 || -1.0 || 21.75 || 33.75 || -22.8125 ||
+|| 518292 || 0.12083334 || 0.7583333 || 0.6763889 || 0.0 || 0.0 || -1.0 || 22.0 || 33.25 || -22.8125 ||
+|| 40365854 || 0.125 || 0.76111114 || 0.6791667 || 0.0 || 0.0 || -1.0 || 22.0 || 33.25 || -22.8125 ||
+|| 2621951 || 0.125 || 0.76111114 || 0.6791667 || 0.0 || 0.0 || -1.0 || 21.5 || 33.75 || -22.3125 ||
+|| 28810976 || 0.12083334 || 0.7736111 || 0.6763889 || 0.0 || 0.0 || -1.0 || 21.5 || 33.75 || -22.3125 ||
+
+Tabelle 3: Auszug aus einer Messung bestehend aus Zeitabstand, Beschleunigung (jeweils in x-, y-, z-Achse), Orientierung (jeweils die relative Rotation um x-, y-, z-Achse) und Orientierung anhand von Rohdaten (jeweils um die x-, y-, z-Achse).
+
+Bei der Tabelle  (Tabelle 3) handelt es sich um einen Ausschnitt einer Messung, die einen Golfschlag repräsentiert.  Diese Daten, in unserem Fall werden nur die Zeitabstände und Beschleunigungsdaten (die Erdbeschleunigung wird nicht extrahiert) betrachtet, dienen bereits als Grundlage der Analyse bzw. Auswertung. Interessante Beobachtungen können vor allem beim Vergleich von zwei Messungen von unterschiedlich zugrundeliegenden Bewegungen gemacht werden (Abbildung 7).
+
+||http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/2unterschiedlicheKlassen.jpg||
+||Abbildung 7: Messungen von 2 unterschiedlichen Klassen (links Baseball, rechts upAndDown)||
+
+Im obigen Beispiel (Abbildung 7) sind Beschleunigungsdaten von zwei unterschiedlichen Bewegungsmustern, durchgeführt mit einem Smartphone, zu sehen. Mit einem Blick ist festzustellen, dass anhand dieser Daten ein deutlicher Unterschied zu erkennen ist und somit Grundlage für eine mögliche Klassifizierung gegeben ist. Um bessere Vergleichsmöglichkeiten zwischen Messungen zu haben, werden die Daten aufbereitet.
+Hintergrund dafür ist, dass man ein vorgegebenes Bewegungsmuster mit unterschiedlicher Geschwindigkeit und/oder unterschiedlichem räumlichen Ausmaß durchführen kann. Trotz der unterschiedlichen Durchführung handelt es sich noch immer um die gleiche Bewegung.
+Aus diesem Grund können die Messdaten bezüglich ihrer Zeitdauer skaliert und ihres Wertebereichs normiert werden. Das heißt, jede Messung wird durch eine konstante Anzahl von Messpunkten repräsentiert, unabhängig von der Dauer einer Messung. Zusätzlich können die Messwerte zwischen einem konstanten Messbereich abgebildet werden, unabhängig von der Durchführungsgeschwindigkeit der Bewegung (Abbildung 8).
+
+||http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/Feature2unterschiedlicheKlassen.jpg||
+||Abbildung 8: Feature von 2 Unterschiedlichen Klassen (links Baseball, rechts upAndDown)||
+
+Dadurch können für jede beliebigen Messungen von vorgegebenen Bewegungsmustern die gleichen Vergleichsbedingungen sichergestellt werden.
+Eine weitere interessante Beobachtung könnte die Auswertung von zwei gleichen Messungen, durchgeführt mit zwei unterschiedlichen Geräten (zum Beispiel Smartphone und Wii Remote), sein. 
+Ziel ist es Unterschiede in den Messungen aufzuzeigen, da sich in beiden Geräten unterschiedliche Beschleunigungssensoren befinden und zu analysieren ob Nintendo die relativ gute Bewegungserkennung anhand von besseren Messdaten erreicht. 
+Um ein aussagekräftigen Vergleich bilden zu können, ist es einerseits notwendig die Messwerte zu normieren und skalieren und andererseits ist es wichtig eine exakte Bewegung für beide Geräte durchzuführen. Aus diesem Grund wurde das Mounting Device entwickelt, dass für eine simultane Bewegung von Smartphone und Wii Remote sorgt (Abbildung 9).
+
+||http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/UnterschieAndriodWiiMessung.jpg||
+||Abbildung 9: Vergleich Android / Wii Messung||
+
+MATLAB CODE VERLINKEN
+
+Alle Messdaten stehen [http://gesturedroid.googlecode.com/svn-history/r219/trunk/GestureDroidMatlab/data.rar hier] zum Download zur Verfügung.
+
+
+==Probleme==
+===Auswertung des Lagesensors===
+Ein Ziel im Rahmen dieses Praktikums war, die Ermittlung der genauen Lage und Rotation von Android und Wii Devices an. Für Android Handys bietet die API einen einfachen Zugriff auf die Beschleunigungsdaten sowie auf eine Rotationsmatrix die die Lage des Handys im Raum repräsentiert.
+Die Rotationsmatrix ist verfälscht wenn das Handy eine relative Beschleunigung oder magnetische Störung erfährt. Durch Einsichtnahme in den [http://www.google.com/codesearch/p?hl=en#uX1GffpyOZk/core/java/android/hardware/SensorManager.java Andriod Kernel Source @getRotationMatrix] bestätigte sich diese Beobachtung. Die Berechnung der Lage wird mit einem Erdmagnet-Vektor (Norden) und einem Beschleunigungs Vector (down-Vector) durchgeführt. Dieser down-Vector geht davon aus, dass die größte Beschleunigung zum Erdmittelpunkt zeigt. Sobald das Handy eine relative Beschleunigung erfährt, ist der down-Vector verfälscht und die Lage wird falsch berechnet. In zukünftigen Projekten könnte die Lage im Raum mittels einem im Smartphone verbauten elektronischen Gyroscopes genauer bestimmt werden.
+
+===Messbereich des Smartphones===
+Der verwendbare Messbereich des MVA150 Beschleunigungssensors im Smartphone liegt zwischen ±2g, somit werden schneller Beschleunigungen auch als 2g Beschleunigungen registriert. Dies kann bei der Klassifikation zu Fehlern führen. Bei sämtlichen Messungen die wir durchgeführt haben liegen die Beschleunigung daher nur im ±2g Bereich um etwaige Fehler zu vermeiden.
+Da die Abtastrate bei ca 50Hz festgelegt ist und eine höhere Abtastrate vorteilhaft ist, versuchten wir zu ermitteln wo diese Frequenz festgelegt wurde. In der Android Core-API gibt es jedoch keine Möglichkeit die Frequenz zu erhöhen [http://www.google.com/codesearch/p?hl=en#uX1GffpyOZk/core/java/android/hardware/SensorManager.java Andriod Kernel Source @registerListener] da das delay schon auf 0 gesetzt wird.
+
+
+===Übertragung der Wii-Messdaten mittels Bluetooth===
+Problematisch war die teilweise fehlerhafte Unterstützung der einzelnen Bluetooth Dongle Driver. Wir testeten verschiedene Dongle (Blue-Soleil , Microsoft stack) unter Windows 7 und Windows XP jedoch erfüllten keine die geforderten Protokollstapel der [http://code.google.com/p/bluecove/ bluecove Java library]. Laut Spezifikation ist bluecove kompatible mit: „Mac OS X, WIDCOMM, Blue-Soleil and Microsoft Bluetooth stack found in Windows XP SP2 and newer “. Auf einem Mac OS X System und dem Durchtesten verschiedenster bluecove Versionen ist es uns dann dennoch gelungen die Bluetooth Verbindung herzustellen. Laut der Homepage der  [http://code.google.com/p/bluecove/ bluecove Java library] wurde es erfolgreich mit einem WIDCOMM Driver getestet (Bluecove wird aktuell immer noch weiterentwickelt).
+Weiters testeten wir verschiedene Wii-Java-API´s wobei besonders [http://motej.sourceforge.net/ motej] und [http://www.world-of-cha0s.hostrocket.com/WiiRemoteJ/ WiiRemoteJ] zu erwähnen sind. Motej ist opensource, bietet jedoch keine Unterstützung für das Motion-Plus Gyroscope. WiiRemoteJ ist closed source, bietet aber Motion-Plus Unterstützung. Leider stellte sich heraus dass bei WiiRemoteJ ein Fehler existiert und nicht gleichzeitig die Beschleunigungsdaten und die Gyroscopedaten ausgelesen werden können. Darauf kontaktierten wir den Programmierer der  WiiRemoteJ API, jedoch konnte dieser den Fehler nicht ausmachen. Inspiriert durch das [http://www.wiibrew.org/wiki/Motion_Plus wiibrew Wiki] erweiterten wir die Motej API um das Motion-Plus Handling.
+
+
+===Finden von aussagekräftigen Features===
+Die Beschleunigungsdaten alleine liefern im Allgemeinen nicht genügend Informationen um eine Bewegung zu klassifizieren. Innerhalb dieses Projektes wurde versucht auch die Lage des Smartphones im Raum mit einzubeziehen. Jedoch traten die bereits zuvor beschriebenen Probleme auf.
+Es gilt also aussagekräftige Features anhand der Beschleunigungsdaten zu finden. Diese Features müssen invariant gegenüber Durchführungsgeschwindigkeit, räumliches Ausmaß der Bewegung und Handhabung des Smartphones sein. Diese Umstände führen dazu, dass eine Klassifikation nur anhand der Beschleunigungsdaten sehr komplex sein kann.
+
+
+==Erkenntnisse==
+Die  Gegenüberstellung der Messdaten hat gezeigt, dass trotz unterschiedlicher Bewegungssensoren von Wii Remote und Smartphones, beide ähnliche Ergebnisse liefern. Große Unterschiede treten nur in Form von unterschiedlicher Auflösung und Messbereich des Beschleunigungssensors auf. Das anfangs angestrebte Ziel einer Trägheitsnavigation konnte durch die großen Messungenauigkeiten nicht erforsch werden. Für erste brauchbare Ergebnisse sollten die Sensoren mindestens um den Faktor 10 genauer funktionieren.
+
+==Weitere Quellen, Informationen und Hilfestellungen==
+
+===Android Market Link===
+
+[https://market.android.com/details?id=at.ac.tuwien.cg.gesture http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=market://search?q=pname:at.ac.tuwien.cg.gesture&.png]
+
+===Checkout URL der Programme===
+[http://gesturedroid.googlecode.com/svn/trunk]
+
+*{{{MainGestureServer}}}
+
+ {{{GestureDroidServer/src/at/ac/tuwien/cg/gesture/control/MainGestureServer.java}}}
+
+*{{{WiiClient}}}
+
+ {{{GestureDroidServer/src/at/ac/tuwien/cg/gesture/wii/WiiRemoteClient.java}}}
+
+Eine Anleitung zur Installation und Verwendung der Programme kann hier gefunden werden.
+=== Installation ===
+[Anleitung_zur_Installation]
+
+===Verwendete Programme===
+*Eclipse, Matlab
+===Zukünftige Aussichten===
+Die einzelnen Messdaten werden als csv Datei abgespeichert und können für eine Klassifizierung mittels [http://www.cs.waikato.ac.nz/ml/weka/ WEKA] verwendbar sein.

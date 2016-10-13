@@ -1,0 +1,19 @@
+#summary Aleitung zur Installation des Server-Programms
+
+= Benötigte Software =
+ # Java
+ # Eclipse
+ # Matlab
+
+== Allgemeine Installation ==
+Checkout von 'trunk/GestureDroidServer' unter Eclipse und Starten des *MainGestureServer*. Nach dem Start des Servers den Android Client starten.
+
+<wiki:video url="http://www.youtube.com/watch?v=xxi1tNHVYhg"/>
+
+== Installation unter Windows ==
+
+Derzeit steht keine Anleitung auf Grund SVN-Problemen zur Verfügung. Wir sind bemüht diese Probleme rasch zu beheben.
+
+== Installation unter MacOS ==
+
+Derzeit steht keine Anleitung auf Grund SVN-Problemen zur Verfügung. Wir sind bemüht diese Probleme rasch zu beheben.

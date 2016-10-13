@@ -1,0 +1,39 @@
+function [dist] = getFeatureDistance(f1,fMatrix,mode)
+%GETFEATUREDISTANCE Summary of this function goes here
+%   Detailed explanation goes here
+
+dist=[];
+if nargin>2
+    f2=[fMatrix(:,1) fMatrix(:,2) fMatrix(:,3)];
+    for i=1:size(f2,1)
+        dist=[dist; sqrt(sum((f1-f2(i,:)).^2))];
+    end
+    return
+end
+
+if strcmp(mode,'permutation')
+    
+    for i=1:size(fMatrix,2)*
+        
+        %Permutation
+        switch i
+            case 1
+               f2=[fMatrix(:,1) fMatrix(:,2) fMatrix(:,3)]; 
+            case 2
+               f2=[fMatrix(:,1) fMatrix(:,3) fMatrix(:,2)];
+            case 3
+               f2=[fMatrix(:,2) fMatrix(:,1) fMatrix(:,3)];
+               
+               f2=[fMatrix(:,2) fMatrix(:,3) fMatrix(:,1)];
+               
+               f2=[fMatrix(:,3) fMatrix(:,1) fMatrix(:,2)];
+               
+               f2=[fMatrix(:,3) fMatrix(:,2) fMatrix(:,1)];
+        end
+        
+        
+    end
+end
+
+end
+

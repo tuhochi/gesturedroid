@@ -1,0 +1,32 @@
+#summary Sammlung aller Bilder
+
+= Bilder =
+
+== Smartphone ==
+http://gesturedroid.googlecode.com/svn/wiki/picture/n1.jpg
+http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/n1XYZ.jpg
+
+== Smartphone GUI ==
+http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/gestureDroidAndroid.jpg
+http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/gestureDroidAndroid2.jpg
+
+== Wii Remote ==
+http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/wiiXYZ_thumb.jpg
+== Mounting Device ==
+http://gesturedroid.googlecode.com/svn/wiki/picture/legoMount/legoMount_thumb.jpg
+== MATLAB Auswerteprogramm ==
+http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/8.jpg
+
+http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/1.png
+
+http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/2.png
+
+http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/3.png
+
+http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/4.png
+
+http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/5.png
+
+http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/6.png
+
+http://gesturedroid.googlecode.com/svn/wiki/picture/screenshots/7.png

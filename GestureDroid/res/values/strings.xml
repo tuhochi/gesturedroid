@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">GestureDroid</string>
+    <string name="app_name">GestureDroid</string>
+<string name="menue_sensor_delay">sensor delay</string>
+<string name="menue_set_sensor_delay">set the sensor delay</string>
+<string name="menue_sensor_calibrate">calibrate sensor</string>
+<string name="menue_server_ip">server ip</string>
+
+<string name="menue_orientation">Orientation</string>
+<string name="menue_orientation_1">x:</string>
+<string name="menue_orientation_2">y:</string>
+<string name="menue_orientation_3">z:</string>
+
+<string name="menue_choose_calibration">choose calibration</string>
+</resources>

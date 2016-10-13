@@ -1,0 +1,44 @@
+function [label] = classify(featureVector,kNN, featureVectorMode)
+%CLASSIFYEFFACC Summary of this function goes here
+%   Detailed explanation goes here
+
+%Permutation
+permutation=1;
+
+%
+
+switch featureVectorMode
+    %jweils richitiges TrainingSet laden
+    case 'normiert+skaliert'
+        trainingSet;
+        dist=getFeatureDistance(featureVector,trainingSet,3,permutation);
+        
+        if permutation==1
+            %Distanzmatrix sortieren
+        end
+        
+        [value,index]=min(dist);
+        euclidLabel=LabelSet(index);
+        
+        
+    case 'normiert+skaliert(normal)'
+        
+    case 'normiert+skaliert(überlappend)'
+    
+    case 'skaliert'
+        
+    case 'skaliert(normal)'
+        
+    case 'skaliert(überlappend)'
+        
+    case 'effektiv+skaliert'
+        
+    case 'effektiv+normiert+skaliert'
+        
+    otherwise
+    disp('Fehler: Unbekannter Mode');
+    label=0;
+end
+
+end
+

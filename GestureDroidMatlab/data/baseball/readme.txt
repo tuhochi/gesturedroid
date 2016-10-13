@@ -1,0 +1,1 @@
+ein einfacher Schlag von hinten nach vorne

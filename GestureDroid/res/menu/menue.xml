@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="@string/menue_sensor_delay" android:id="@+id/menue_sensor_delay"></item>
+<item android:id="@+id/menue_sensor_calibrate" android:title="@string/menue_sensor_calibrate"></item>
+<item android:id="@+id/menue_set_server_ip" android:title="@string/menue_server_ip"></item>
+</menu>

@@ -1,0 +1,8 @@
+#summary Blue Cove Issue
+
+= Windows7x64 Issue =
+maybe there is a solution?
+http://code.google.com/p/bluecove/issues/detail?id=109
+
+= MacOSX 10.6 =
+it works perfect

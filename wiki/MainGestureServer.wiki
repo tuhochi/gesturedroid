@@ -1,0 +1,6 @@
+http://gesturedroid.googlecode.com/svn/wiki/picture/MainGestureServer3DVis.jpg
+3D Visualisierung für zukünftige Projekte mit Gyroscope
+
+
+http://gesturedroid.googlecode.com/svn/wiki/picture/MainGestureServerLageVis.jpg
+Visualisiert die Lage des Smartphones/Wii im Raum

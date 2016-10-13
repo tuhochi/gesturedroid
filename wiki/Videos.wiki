@@ -1,0 +1,43 @@
+#summary Sammlung von Videos
+
+=Messvorgaenge=
+==Sword==
+
+<wiki:video url="http://www.youtube.com/watch?v=9ZPlk-bXoic"/>
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/sword/android/2011.03.18.01.29.05.csv android data]
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/sword/wii/2011.03.18.01.29.05.csv wii data]
+
+==Golf==
+
+<wiki:video url="http://www.youtube.com/watch?v=XvsJNYt3Xp0"/>
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/golf/android/2011.03.20.22.44.09.csv android data]
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/golf/wii/2011.03.20.22.44.09.csv wii data]
+
+==Wave==
+
+<wiki:video url="http://www.youtube.com/watch?v=2QdcYO9S358"/>
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/wave/android/2011.03.18.01.16.58.csv android data]
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/wave/wii/2011.03.18.01.16.58.csv wii data]
+
+==Baseball==
+
+<wiki:video url="http://www.youtube.com/watch?v=i8Sq83e8j6E"/>
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/baseball/android/2011.03.20.22.46.38.csv android data]
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/baseball/wii/2011.03.20.22.46.38.csv wii data]
+
+==Up And Down==
+
+<wiki:video url="http://www.youtube.com/watch?v=0ggUNYzewxE"/>
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/upAndDown/android/2011.03.18.01.01.42.csv android data]
+[http://code.google.com/p/gesturedroid/source/browse/trunk/GestureDroidMatlab/data/upAndDown/wii/2011.03.18.01.01.42.csv wii data]
+
+
+=Mounting Device=
+
+==Wii fixieren==
+
+<wiki:video url="http://www.youtube.com/watch?v=TeXN9NFG8a0"/>
+
+==Warnton bei out of Range==
+
+<wiki:video url="http://www.youtube.com/watch?v=IfeTO_J-ngc"/>
